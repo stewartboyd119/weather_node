@@ -1,10 +1,9 @@
-
 const request = require('request');
 const querystring = require('querystring');
+const api_key = require('../api_keys/lock_and_key').googleApiKey;
 
 
 var url_base = 'https://maps.googleapis.com/maps/api/geocode/json';
-var api_key = 'AIzaSyAY6ErpHabi_J_S5mdpVdKAElxOptI086A';
 var geocodeAddress = (address, callback) => {
     var url_query = querystring.stringify(
         {address,
