@@ -9,5 +9,8 @@ request(request_object,
             console.log('error occured');
             return;
         }
-        console.log(JSON.stringify(body, undefined, 2));
+        var result = body.results[0];
+        console.log(`Address = ${result.formatted_address}`)
+        console.log(`Latitue = ${result.geometry.location.lat}`);
+        console.log(`Latitue = ${result.geometry.location.lng}`);
 });
