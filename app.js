@@ -19,6 +19,7 @@ geocode.geocodeAddress(argv.address, (errorMessage, result) => {
         console.log(errorMessage);
     } else if (result) {
 
+        console.log(result.address);
 
         darksky.formApiRequest(result.lat, result.lng, (errorMessage, response) => {
             if (errorMessage) {

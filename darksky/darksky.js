@@ -13,7 +13,11 @@ var formApiRequest = (lat, lng, callback) => {
         var errorMessage = null;
         var result = null;
         if (!error && response.statusCode === 200) {
-            result = body.currently;
+            var currently = body.currently;
+            result = {
+                temperature: currently.temperature,
+                apparentTemperature: currently.apparentTemperature
+            }
         } else {
             errorMessage = 'Could not contact weather server';    
         }
