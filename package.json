@@ -2,10 +2,13 @@
   "name": "weather_node",
   "version": "1.0.0",
   "description": "A udemy example",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Stewart Boyd",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.87.0"
+  }
 }
