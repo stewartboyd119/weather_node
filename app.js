@@ -23,15 +23,23 @@ var url_query = querystring.stringify(
     key}
 );
 var url = url_base + '?' + url_query;
+console.log(url);
 var request_object ={url: url, json: true} ;
 request(request_object,
     (error, response, body) => {
         if (error) {
-            console.log('error occured');
-            return;
+            console.log('Unable to connect to google servers');
+        } else if (response.statusCode == 404){
+            console.log(`${response.statusCode} is no good`);
+        } else if (body.status === 'ZERO_RESULTS') {
+            console.log('Unable to find that address');
+        } else if (body.status === 'OK') {
+
+            var result = body.results[0];
+            console.log(`Address = ${result.formatted_address}`)
+            console.log(`Latitue = ${result.geometry.location.lat}`);
+            console.log(`Latitue = ${result.geometry.location.lng}`);
+        } else {
+            console.log('Undefined error');
         }
-        var result = body.results[0];
-        console.log(`Address = ${result.formatted_address}`)
-        console.log(`Latitue = ${result.geometry.location.lat}`);
-        console.log(`Latitue = ${result.geometry.location.lng}`);
 });
