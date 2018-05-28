@@ -9,5 +9,5 @@ request(request_object,
             console.log('error occured');
             return;
         }
-        console.log(body);
+        console.log(JSON.stringify(body, undefined, 2));
 });
