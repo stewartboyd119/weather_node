@@ -1,5 +1,6 @@
 const yargs = require('yargs');
 const geocode = require('./geocode/geocode');
+const darksky = require('./darksky/darksky');
 
 const address= "address";
 const argv = yargs.
@@ -18,7 +19,14 @@ geocode.geocodeAddress(argv.address, (errorMessage, result) => {
         console.log(errorMessage);
     } else if (result) {
 
-        console.log(JSON.stringify(result, undefined, 2));
+
+        darksky.formApiRequest(result.lat, result.lng, (errorMessage, response) => {
+            if (errorMessage) {
+                console.log(errorMessage);
+            } else if (response) {
+                console.log(JSON.stringify(response, undefined, 2));
+            }
+        })
     }
 
 });
