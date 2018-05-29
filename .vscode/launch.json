@@ -14,6 +14,13 @@
                 "-a",
                 "Des Moins Iowa"
             ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Promise.js",
+            "program": "${workspaceFolder}/playground/promise.js",
         }
+ 
     ]
 }
